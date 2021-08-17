@@ -1,7 +1,7 @@
 # 中国行政区划数据
 
 所有数据存放于 json 目录中。  
-大陆数据基于统计局2020日6月30日数据(http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2020/index.html)。  
+大陆数据基于统计局2020日6月30日数据( http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2020/index.html )。  
 港澳台数据基于百度百科等网络资料整理获得。
 
 - #### Json数据说明
