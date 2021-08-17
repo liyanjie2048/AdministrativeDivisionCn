@@ -30,9 +30,8 @@ namespace ConsoleApp
             await collector.RunAsync();
 
             await WriteLevelJsonAsync(context);
-
+            await WriteLevel12JsonAsync(context);
             await WriteLevel123JsonAsync(context);
-
             await WriteLevel345JsonAsync(context);
 
             Console.WriteLine("Done!");
@@ -50,6 +49,17 @@ namespace ConsoleApp
                     .ToDictionary(_ => _.Code, _ => _.Display);
                 await File.WriteAllTextAsync(Path.Combine(baseDir, $"{i}.json"), JsonSerializer.Serialize(data, jsonOptions));
             }
+        }
+        static async Task WriteLevel12JsonAsync(MongoDBContext context)
+        {
+            var data = new Dictionary<string, object>();
+
+            await FillDataAsync(context, data, 2, await context.DataSet.AsQueryable()
+                .Where(_ => _.Level == 0)
+                .OrderBy(_ => _.Code)
+                .ToListAsync());
+
+            await File.WriteAllTextAsync(Path.Combine(baseDir, $"12.json"), JsonSerializer.Serialize(data, jsonOptions));
         }
         static async Task WriteLevel123JsonAsync(MongoDBContext context)
         {
