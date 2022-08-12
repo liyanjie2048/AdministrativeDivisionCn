@@ -107,7 +107,7 @@ class Program
                     new AdministrativeDivisionCn
                     {
                         Code = $"{item.Code}00",
-                        Display = "市辖区",
+                        Display = "辖区",
                         Level = 3,
                     }
                 }
